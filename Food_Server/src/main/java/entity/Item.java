@@ -3,6 +3,7 @@ package entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -10,8 +11,14 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name = "items")
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQueries({
+        @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
+        @NamedQuery(name = "Item.findById", query = "SELECT i FROM Item i INNER JOIN i.ingredients ig WHERE ig.supplierName = :supplierName and i.onSpecial = true"),
+
+})
 public abstract class Item implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
@@ -35,14 +42,4 @@ public abstract class Item implements Serializable {
     public Item() {
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", onSpecial=" + onSpecial +
-                '}';
-    }
 }

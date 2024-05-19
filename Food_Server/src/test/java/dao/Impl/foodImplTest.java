@@ -35,4 +35,6 @@ class foodImplTest {
         Food f = new Food("F10", "Banh Mi", 10000, "Banh Mi thit ngon", true, Type.MAIN_COURSE, 15, 15);
         assertFalse(foodDao.addFood(f));
     }
+
+
 }

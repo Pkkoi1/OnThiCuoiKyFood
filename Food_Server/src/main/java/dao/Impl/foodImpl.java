@@ -2,12 +2,14 @@ package dao.Impl;
 
 import dao.foodDao;
 import entity.Food;
+import entity.Item;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 public class foodImpl extends UnicastRemoteObject implements foodDao {
 
@@ -36,4 +38,7 @@ public class foodImpl extends UnicastRemoteObject implements foodDao {
             return false;
         }
     }
+
+
+
 }
