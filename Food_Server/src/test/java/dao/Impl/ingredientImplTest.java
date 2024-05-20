@@ -26,5 +26,13 @@ class ingredientImplTest {
     void testListFoodAndCost() throws RemoteException {
         ingredientDao.listFoodAndCost().forEach((k, v) -> System.out.println(k + " : " + v));
     }
+    @Test
+    void testCauC() throws RemoteException {
+        assertNotNull(ingredientDao.listFoodAndCost());
+    }
+    @Test
+    void testCauC1() throws RemoteException {
+        assertTrue(ingredientDao.listFoodAndCost().isEmpty());
+    }
 
 }

@@ -32,12 +32,12 @@ class itemImplTest {
     @Test
     void testCauB2() throws RemoteException {
 //        itemDao.listItems("anna food distributors").forEach(System.out::println);
-        assertNull(itemDao.listItems("anna food distributors"));
+        assertTrue(itemDao.listItems("anna food distributors").isEmpty());
     }
 
     @Test
     void testCauB3() throws RemoteException {
-        assertNotNull(itemDao.listItems("Anna Food Distributrs"));
+        assertTrue(itemDao.listItems("anna food distributor").isEmpty());
     }
 
 }
